@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>4096</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--<script src="jquery-1.7.1.min.js"></script>-->
 		<style type="text/css">
 		<!--
 			body{
@@ -46,9 +47,19 @@
 				
 				this.point = 0;
 				
-				this.clock = function(){
+				this.clock = function() {
 					if( ! this.paused ) this.watch++;
-					this.gameStats.find('span.time').html(this.watch);
+					
+					segs= this.watch % 60;
+					segs=(segs<10)?'0'+segs:segs;
+					
+					mins= Math.floor(this.watch/60) ;
+					mins=(mins<10)?'0'+mins:mins;
+					
+					hours= Math.floor(this.watch/(60*60)) ;
+					hours=(hours<10)?'0'+hours:hours;
+					
+					this.gameStats.find('span.time').html(hours+':'+mins+':'+segs);
 				}
 				
 				this.game = $(elem)
@@ -69,7 +80,7 @@
 								'font-size':'16px'
 							})
 					)
-					.append('<span class="time">00:00</span>')
+					.append('<span class="time"></span>')
 					//.append('<span>Puntaje:</span>')
 					.append(
 						$('<span/>').css('float','right')
@@ -382,8 +393,7 @@
 	<body>
 		<div id="game"></div>
 		<script>
-			dimn=prompt("Ingrese dimension:",4);
-			var Game = new Game4096($('#game'),{dim:dimn,rand:[2]});
+			var Game = new Game4096($('#game'),{dim:4,rand:[2]});
 			setInterval("Game.clock();",1000);
 			$(document).on('keydown',function(e){
 				if( e.which >= 37 && e.which <= 40 ) Game.move(e.which);
