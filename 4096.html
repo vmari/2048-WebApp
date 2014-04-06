@@ -2,9 +2,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<title>4096</title>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<!--<script src="jquery-1.7.1.min.js"></script>-->
+		<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+		<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="hammer.min.js"></script>
 		<style type="text/css">
 		<!--
 			body{
@@ -385,20 +387,22 @@
 					}
 				}
 				
-				
 				this.reset();
 			}
 		</script>
 	</head>
-	<body>
-		<div id="game"></div>
-		<script>
-			var Game = new Game4096($('#game'),{dim:4,rand:[2]});
-			setInterval("Game.clock();",1000);
-			$(document).on('keydown',function(e){
-				if( e.which >= 37 && e.which <= 40 ) Game.move(e.which);
-				if( e.which == 82 ) Game.reset();
-			});
-		</script>
-	</body>
+	<body><div id="game"></div></body>
+	<script type="text/javascript">
+		var Game = new Game4096($('#game'),{dim:4,rand:[2],width:200,height:200});
+		var element = document.getElementById('game');
+		Hammer(element).on("swipeleft", function(e) {Game.move(37);});
+		Hammer(element).on("swipeup", function(e) {Game.move(38);});
+		Hammer(element).on("swiperight", function(e) {Game.move(39);});
+		Hammer(element).on("swipedown", function(e) {Game.move(40);});
+		setInterval("Game.clock();",1000);
+		$(document).on('keydown',function(e){
+			if( e.which >= 37 && e.which <= 40 ) Game.move(e.which);
+			if( e.which == 82 ) Game.reset();
+		});
+	</script>
 </html>
