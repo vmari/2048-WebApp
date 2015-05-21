@@ -1,5 +1,7 @@
-4096
+2048 - WebApp
 ====
+Implementación en HTML y JS.
 
-View example of use
-http://cssdeck.com/labs/full/0pfxsdzl
+R para resetear el juego.
+
+Ver online: [game]: http://valentinmari.github.io/2048-WebApp/
