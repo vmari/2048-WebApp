@@ -391,7 +391,7 @@
 	</head>
 	<body><div id="game"></div></body>
 	<script type="text/javascript">
-		var Game = new Game2048($('#game'),{dim:4,rand:[2],width:200,height:200});
+		var Game = new Game2048($('#game'),{dim:4,rand:[2,2,2,2,4],width:300,height:300});
 		var element = document.getElementById('game');
 		setInterval("Game.clock();",1000);
 		$(document).on('keydown',function(e){
