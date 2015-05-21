@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<title>4096</title>
+		<title>valentinmari/2048-WebApp</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<style type="text/css">
 		<!--
@@ -16,7 +16,7 @@
 		-->
 		</style>
 		<script>
-			var Game4096=function(elem,opts){
+			var Game2048=function(elem,opts){
 				if( typeof opts === 'undefined' ) opts = {};
 				
 				this.lastAnim;
@@ -74,7 +74,7 @@
 					.css('padding','5px')
 					//.css('border','1px solid #249')
 					.append(
-						$('<span>4096</span>')
+						$('<span>2048-WebApp</span>')
 							.css({
 								'float':'left',
 								'font-size':'16px'
@@ -391,7 +391,7 @@
 	</head>
 	<body><div id="game"></div></body>
 	<script type="text/javascript">
-		var Game = new Game4096($('#game'),{dim:4,rand:[2],width:200,height:200});
+		var Game = new Game2048($('#game'),{dim:4,rand:[2],width:200,height:200});
 		var element = document.getElementById('game');
 		setInterval("Game.clock();",1000);
 		$(document).on('keydown',function(e){
