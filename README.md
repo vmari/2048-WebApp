@@ -3,5 +3,6 @@
 Implementación en HTML y JS.
 
 [R] para resetear el juego.
+Flechas para mover
 
-Ver online: http://valentinmari.github.io/2048-WebApp/
+Ver online: http://vmari.github.io/2048-WebApp/
